@@ -91,14 +91,12 @@ private:
 int main()
 {
 
-    SharedArray array("array1", 64);
+    SharedArray array("array", 64);
     while (true)
     {
         for (int i = 0; i < array.size(); ++i)
         {
-            sem_wait(array.semaphore_);
             array[i] = i;
-            sem_post(array.semaphore_);
         }
         sleep(1);
     }
